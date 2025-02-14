@@ -2,10 +2,12 @@
 #include <vector>
 #include <ctime>
 #include <string>
+#include <sstream>
 #include "Player.h"
 #include "Monster.h"
 #include "Event.h"
 #include "Weapon.h"
+#include "utils.h"
 
 void showMenu() {
     std::cout << "1.查看玩家信息" << std::endl;
@@ -14,11 +16,12 @@ void showMenu() {
     std::cout << "4.随机装备武器" << std::endl;
     std::cout << "q.退出游戏" << std::endl;
 }
-
-Weapon *randomSelection(std::vector<Weapon *> &weapons) {
-    int randNum = rand() % weapons.size();
-    Weapon *selectedWeapon = weapons[randNum];
-    return selectedWeapon;
+Weapon *createWeapon(std::stringstream &ss) {
+    int id;
+    std::string name;
+    int attack;
+    if (ss >> id >> name >> attack) { return new Weapon(id, name, attack); }
+    return nullptr;
 }
 
 int main() {
@@ -26,8 +29,9 @@ int main() {
     Player player("小白", 100, 20, 10, 20, 0);
 
     std::string filePath = "../config/weapon.txt";
-    std::vector<Weapon *> weapons = Weapon::createWeapons(filePath);
-    Weapon *selectedWeapon = nullptr;
+
+    std::vector<Weapon*> weapons = loadfiles<Weapon*>(filePath, createWeapon);
+    Weapon* selectedWeapon = nullptr;
 
     Event event;
     char choice = ' ';
@@ -43,7 +47,7 @@ int main() {
             for (const auto &weapon : weapons) { weapon->getWeaponInfo(); }
             break;
         case '4':
-            selectedWeapon = randomSelection(weapons);
+            selectedWeapon = randomSelect<Weapon*>(weapons);
             player.equipWeapon(selectedWeapon);
             break;
         case 'q': std::cout << "游戏结束" << std::endl; break;
