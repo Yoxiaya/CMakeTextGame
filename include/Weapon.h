@@ -11,7 +11,7 @@ private:
     int attack;
 
 public:
-    static std::vector<Weapon *> createWeapons(std::string &fileName);
+
     Weapon(int id, std::string name, int attack);
 
     int getAttack() const;

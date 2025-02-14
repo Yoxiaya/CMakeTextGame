@@ -44,14 +44,14 @@ void Player::equipWeapon(Weapon *weapon) {
     std::cout << name << "装备了" << weapon->getName() << std::endl;
 }
 
-void Player::attackMonster(Monster &monster) {
-    std::cout << name << "攻击了" << monster.getName() << std::endl;
+void Player::attackMonster(Monster *monster) {
+    std::cout << name << "攻击了" << monster->getName() << std::endl;
     int weaponAttack = weapon == nullptr ? 0 : weapon->getAttack();
 
-    int attack = (this->attack + weaponAttack) - monster.getDefense();
+    int attack = (this->attack + weaponAttack) - monster->getDefense();
 
-    monster.takeDamage(attack);
-    std::cout << monster.getName() << "受到了" << attack << "点伤害，" << "剩余生命值:" << monster.getHealth()
+    monster->takeDamage(attack);
+    std::cout << monster->getName() << "受到了" << attack << "点伤害，" << "剩余生命值:" << monster->getHealth()
               << std::endl;
 }
 void Player::addExp(int exp) {

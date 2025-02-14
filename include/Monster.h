@@ -22,17 +22,17 @@ private:
     int exp;
 
 public:
-    Monster(std::string name, int health, int attack, int defense,int speed, int exp);
+    Monster(std::string name, int health, int attack, int defense, int speed, int exp);
 
     // getters
     std::string getName() const;
     int getHealth() const;
     int getDefense() const;
     int getExp() const;
+    void getMonsterInfo() const;
 
-    
     void displayPlayerStats() const;
-    void attackPlayer(Player &player);
+    void attackPlayer(Player *player);
     void takeDamage(int damage);
     bool isDead() const;
 };

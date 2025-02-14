@@ -9,7 +9,7 @@ class Monster;
 class Event {
     private:
     public:
-        void combat(Player& player, Monster& monster);
+        void combat(Player* player, Monster* monster);
 };
 
 #endif

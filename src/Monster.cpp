@@ -25,13 +25,17 @@ int Monster::getDefense() const {
 int Monster::getExp()const {
     return exp;
 }
+void Monster::getMonsterInfo() const {
+    std::cout << name << "\t" << health << "\t" << defense << "\t" << speed << "\t" << exp << std::endl;
+}
 
-void Monster::attackPlayer(Player &player) {
-    std::cout << name << "攻击了" << player.getName() << std::endl;
-    int attack = this->attack - player.getDefense();
 
-    player.takeDamage(attack);
-    std::cout << player.getName() << "受到了" << attack << "点伤害，" << "剩余生命值:" << player.getHealth() << std::endl;
+void Monster::attackPlayer(Player *player) {
+    std::cout << name << "攻击了" << player->getName() << std::endl;
+    int attack = this->attack - player->getDefense();
+
+    player->takeDamage(attack);
+    std::cout << player->getName() << "受到了" << attack << "点伤害，" << "剩余生命值:" << player->getHealth() << std::endl;
 }
 
 void Monster::takeDamage(int damage) {
