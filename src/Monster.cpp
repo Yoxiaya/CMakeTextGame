@@ -4,7 +4,7 @@
 #include "Player.h"
 
 Monster::Monster(std::string monsterName, int monsterHealth, int monsterAttack, int monsterDefense, int monsterSpeed, int monsterExpAccumulation) :
-    name(monsterName), health(monsterHealth), attack(monsterAttack), defense(monsterDefense), speed(monsterSpeed), exp(monsterExpAccumulation) {
+    name(monsterName), health(monsterHealth),maxHealth(monsterHealth), attack(monsterAttack), defense(monsterDefense), speed(monsterSpeed), exp(monsterExpAccumulation) {
 }
 void Monster::displayPlayerStats() const {
     std::cout << "怪物名称:" << name << std::endl;
@@ -44,6 +44,11 @@ void Monster::takeDamage(int damage) {
     if (health < 0)
         health = 0;
 }
+
+void Monster::reset() {
+    health = maxHealth;
+}
+
 bool Monster::isDead() const {
     return health == 0;
 }

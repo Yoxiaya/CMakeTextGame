@@ -6,8 +6,7 @@
 
 void Event::combat(Player* player, Monster* monster) {
     if (monster->isDead()) {
-        std::cout << "怪物已经死亡" << std::endl;
-        return;
+        monster->reset();
     }
     std::cout << "战斗开始" << std::endl;
     while (!player->isDead() && !monster->isDead()) {

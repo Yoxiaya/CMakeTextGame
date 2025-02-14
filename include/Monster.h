@@ -12,6 +12,8 @@ private:
     std::string name;
     // 生命值
     int health;
+    // 最大生命值
+    int maxHealth;
     // 攻击力
     int attack;
     // 防御力
@@ -34,6 +36,7 @@ public:
     void displayPlayerStats() const;
     void attackPlayer(Player *player);
     void takeDamage(int damage);
+    void reset();
     bool isDead() const;
 };
 #endif
