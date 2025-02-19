@@ -28,7 +28,9 @@ int Monster::getExp()const {
 void Monster::getMonsterInfo() const {
     std::cout << name << "\t" << health << "\t" << defense << "\t" << speed << "\t" << exp << std::endl;
 }
-
+int Monster::getMaxHealth() const {
+    return maxHealth;
+}
 
 void Monster::attackPlayer(Player *player) {
     std::cout << name << "攻击了" << player->getName() << std::endl;

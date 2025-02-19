@@ -31,6 +31,7 @@ public:
     int getHealth() const;
     int getDefense() const;
     int getExp() const;
+    int getMaxHealth() const;
     void getMonsterInfo() const;
 
     void displayPlayerStats() const;
