@@ -35,14 +35,12 @@ int Monster::getMaxHealth() const {
 void Monster::attackPlayer(Player *player) {
     std::cout << name << "攻击了" << player->getName() << std::endl;
     int attack = this->attack - player->getDefense();
-
     player->takeDamage(attack);
     std::cout << player->getName() << "受到了" << attack << "点伤害，" << "剩余生命值:" << player->getHealth() << std::endl;
 }
 
 void Monster::takeDamage(int damage) {
-    int damageTaken = damage - defense;
-    health -= damageTaken;
+    health -= damage;
     if (health < 0)
         health = 0;
 }

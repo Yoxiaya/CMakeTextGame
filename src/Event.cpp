@@ -14,13 +14,21 @@ void Event::combat(Player *player, Monster *monster) {
                   << std::endl;
         std::cout << monster->getName() << " 当前血量: " << monster->getHealth() << "/" << monster->getMaxHealth()
                   << std::endl;
-        player->showSkill();
+
         int choice;
-        std::cout << "请选择技能（输入数字）";
+        std::cout << "1.普通攻击" << std::endl;
+        std::cout << "2.选择技能" << std::endl;
+        std::cout << "请选择技能操作:";
         std::cin >> choice;
         switch (choice) {
         case 1: player->attackMonster(monster); break;
-        case 2: player->skill1(monster); break;
+        case 2:
+            player->showSkill();
+            std::cin >> choice;
+            if(choice == 1){
+                player->skill(monster);
+            }
+            break;
         default: break;
         }
         if (monster->isDead()) {

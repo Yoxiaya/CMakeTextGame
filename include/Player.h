@@ -46,7 +46,7 @@ public:
     void displayPlayerStats() const;
     void takeDamage(int damage);
     void attackMonster(Monster* monster);
-    void skill1(Monster* monster);
+    void skill(Monster* monster);
 
     void equipWeapon(Weapon* weapon);
     void addExp(int exp);

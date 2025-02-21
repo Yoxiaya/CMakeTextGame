@@ -20,8 +20,8 @@ void Player::displayPlayerStats() const {
     std::cout << "经验值: " << expAccumulation << "/" << expLimit << std::endl;
 }
 void Player::showSkill() const {
-    std::cout << "1.普通攻击" << std::endl;
-    std::cout << "2.技能1" << std::endl;
+    std::cout << "1.风压剑" << std::endl;
+
 }
 void Player::levelUp() {
     level++;
@@ -59,7 +59,7 @@ void Player::attackMonster(Monster *monster) {
     std::cout << monster->getName() << "受到了" << attack << "点伤害，" << "剩余生命值:" << monster->getHealth()
               << std::endl;
 }
-void Player::skill1(Monster *monster) {
+void Player::skill(Monster *monster) {
     monster->takeDamage(20);
     std::cout << monster->getName() << "受到了" << 20 << "点真实伤害，" << "剩余生命值:" << monster->getHealth()
               << std::endl;
