@@ -20,8 +20,10 @@ void Player::displayPlayerStats() const {
     std::cout << "经验值: " << expAccumulation << "/" << expLimit << std::endl;
 }
 void Player::showSkill() const {
+    std::cout << "################" << std::endl;
     std::cout << "1.风压剑" << std::endl;
-
+    std::cout << "2.返回" << std::endl;
+    std::cout << "################" << std::endl;
 }
 void Player::levelUp() {
     level++;

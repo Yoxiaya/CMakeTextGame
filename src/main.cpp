@@ -10,12 +10,14 @@
 #include "utils.h"
 
 void showMenu() {
+    std::cout << "*******************" << std::endl;
     std::cout << "1.查看玩家信息" << std::endl;
     std::cout << "2.战斗" << std::endl;
     std::cout << "3.查看武器图鉴" << std::endl;
     std::cout << "4.随机装备武器" << std::endl;
     std::cout << "5.查看怪物图鉴" << std::endl;
     std::cout << "q.退出游戏" << std::endl;
+    std::cout << "*******************" << "\n" << std::endl;
 }
 Weapon *createWeapon(std::stringstream &ss) {
     int id;
@@ -53,8 +55,8 @@ int main() {
 
     Event event;
     char choice = ' ';
-    showMenu();
     while (choice != 'q') {
+        showMenu();
         std::cin >> choice;
         switch (choice) {
         case '1': shiro->displayPlayerStats(); break;
